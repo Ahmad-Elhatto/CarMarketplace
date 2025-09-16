@@ -1,0 +1,46 @@
+<%- include ('../partials/header.ejs')%>
+
+<main>
+    <section class="welcome">
+        <h2>Offers for <%= offers[0].item.title %></h2>
+    </section>
+
+    <section class="list-view">
+        <% if (offers.length > 0) { %>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Buyer</th>
+                        <th>Amount</th>
+                        <% if (offers[0].item.active) { %>
+                            <th>Action</th>
+                        <% } else { %>
+                            <th>Status</th>
+                        <% } %>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% offers.forEach(offer => { %>
+                        <tr>
+                            <td><%= offer.buyer.firstName + ' ' + offer.buyer.lastName %></td>
+                            <td>$<%= offer.amount.toFixed(2)  %></td>
+                            <td>
+                                <% if (offer.item.active) { %>
+                                    <form action="/market/<%= offer.item.id %>/offers/<%= offer.id %>?_method=PUT" method="POST">
+                                        <button type="submit" class="action-button view-offers">Accept</button>
+                                    </form>
+                                <% } else { %>
+                                    <%= offer.status %>
+                                <% } %>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p class="no-listings-message">No offers have been made for this vehicle yet.</p>
+        <% } %>
+    </section>
+</main>
+
+<%- include ('../partials/footer.ejs')%>

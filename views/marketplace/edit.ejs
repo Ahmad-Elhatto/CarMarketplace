@@ -1,0 +1,61 @@
+<%- include ('../partials/header.ejs')%>
+    <main>
+        <section class="form-container">
+            <!-- Prompt message -->
+            <h1 class="form-prompt">
+                Edit Your Listing on AutoHaven!
+            </h1>
+            
+            <!-- Listing edit form -->
+            <form class="form-element" action="/market/<%= vehicle.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                <div class="label-grouper">
+                    <label for="title">Title of Listing</label>
+                    <input type="text" id="title" name="title" value="<%= vehicle.title %>" required> 
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" value="<%= vehicle.price %>" required>
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="mileage">Mileage</label>
+                    <input type="number" id="mileage" name="mileage" value="<%= vehicle.mileage %>" required>
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required minlength="10"><%= vehicle.description %></textarea>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="vehicleType">Type of Vehicle</label>
+                    <select id="vehicleType" name="vehicleType" required>
+                        <option value="">Select a type</option>
+                        <option value="SUV" <%= vehicle.vehicleType === 'SUV' ? 'selected' : '' %>>SUV</option>
+                        <option value="Sedan" <%= vehicle.vehicleType === 'Sedan' ? 'selected' : '' %>>Sedan</option>
+                        <option value="Truck" <%= vehicle.vehicleType === 'Truck' ? 'selected' : '' %>>Truck</option>
+                        <option value="Coupe" <%= vehicle.vehicleType === 'Coupe' ? 'selected' : '' %>>Coupe</option>
+                        <option value="Convertible" <%= vehicle.vehicleType === 'Convertible' ? 'selected' : '' %>>Convertible</option>
+                        <option value="Motorcycle" <%= vehicle.vehicleType === 'Motorcycle' ? 'selected' : '' %>>Motorcycle</option>
+                        <option value="Van" <%= vehicle.vehicleType === 'Van' ? 'selected' : '' %>>Van</option>
+                    </select>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="year">Year</label>
+                    <input type="number" id="year" name="year" value="<%= vehicle.year %>" required>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*">
+                </div>
+
+                <input type="hidden" name="oldImage" value="<%= vehicle.image %>">
+            
+                <button type="submit" class="submit-btn">Update Listing</button>
+            </form>
+        </section>            
+    </main>
+<%- include ('../partials/footer.ejs')%>

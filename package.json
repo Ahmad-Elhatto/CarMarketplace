@@ -1,0 +1,27 @@
+{
+  "name": "project-5",
+  "version": "1.0.0",
+  "description": "A marketplace for selling/buying vehichles",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ahmad Elhatto",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "express-rate-limit": "^7.4.1",
+    "express-session": "^1.18.1",
+    "express-validator": "^7.2.0",
+    "he": "^1.2.0",
+    "i": "^0.3.7",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.7.3",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

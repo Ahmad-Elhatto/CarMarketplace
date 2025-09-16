@@ -1,0 +1,59 @@
+<%- include ('../partials/header.ejs')%>
+    <main>
+        <section class="form-container">
+            <!-- Prompt message -->
+            <h1 class="form-prompt">
+                Participating in the AutoHaven marketplace has never been easier!
+            </h1>
+            
+            <!-- Listing submission form -->
+            <form class="form-element" action="/market" method="POST" enctype="multipart/form-data">
+                <div class="label-grouper">
+                    <label for="title">Title of Listing</label>
+                    <input type="text" id="title" name="title" required> 
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="price">Price</label>
+                    <input type="number" id="price" name="price" required>
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="mileage">Mileage</label>
+                    <input type="number" id="mileage" name="mileage" required>
+                </div>
+                
+                <div class="label-grouper">
+                    <label for="description">Description</label>
+                    <textarea id="description" name="description" rows="4" required minlength="10"></textarea>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="vehicleType">Type of Vehicle</label>
+                    <select id="vehicleType" name="vehicleType" required>
+                        <option value="">Select a type</option>
+                        <option value="SUV">SUV</option>
+                        <option value="Sedan">Sedan</option>
+                        <option value="Truck">Truck</option>
+                        <option value="Coupe">Coupe</option>
+                        <option value="Convertible">Convertible</option>
+                        <option value="Motorcycle">Motorcycle</option>
+                        <option value="Van">Van</option>
+                    </select>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="year">Year</label>
+                    <input type="number" id="year" name="year" required>
+                </div>
+
+                <div class="label-grouper">
+                    <label for="image">Image</label>
+                    <input type="file" id="image" name="image" accept="image/*" required>
+                </div>
+            
+                <button type="submit" class="submit-btn">Submit Listing</button>
+            </form>
+        </section>            
+    </main>
+<%- include ('../partials/footer.ejs')%>

@@ -1,0 +1,36 @@
+<%- include ('../partials/header.ejs')%>
+        <main>
+            <section class="details-container">
+                <div class="details-image">
+                    <img src="<%= vehicle.image %>" alt="Vehicle Image">
+                </div>
+                <div class="specs">
+                    <h2><%= vehicle.title %></h2>
+                    <h3>Price: $<%= vehicle.price %></h3>
+                    <h4>Offers: <%= vehicle.totalOffers %> | Highest: $<%= vehicle.highestOffer %> </h4>
+                    <p><strong>Year:</strong> <%= vehicle.year %></p>
+                    <p><strong>Mileage:</strong> <%= vehicle.mileage %> miles</p>
+                    <p><strong>Type of Vehicle:</strong> <%= vehicle.vehicleType %></p>
+                    <p><strong>Seller:</strong> <%= vehicle.sellerType.firstName + ' ' + vehicle.sellerType.lastName%></p>
+                    <p class="description">
+                        <strong>Description:</strong> <%= vehicle.description %>
+                    </p>
+                    <% if(true === vehicle.active) { %>
+                        <form action="/market/<%= vehicle._id %>/offers" method="POST" class="offer-form">
+                            <input 
+                                type="number" 
+                                name="amount" 
+                                placeholder="Enter your offer" 
+                                required 
+                                class="offer-input"
+                            >
+                            <button type="submit" class="offer-button">Make an Offer</button>
+                        </form>
+                    <% } else { %>
+                        <br>
+                        <h3 class="unavailable">This listing is no longer available.</h3>
+                    <% } %>
+                </div>
+            </section>
+        </main>
+<%- include ('../partials/footer.ejs')%>

@@ -1,0 +1,624 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    color: black;
+}
+
+main{
+    margin-top: 79px;
+    margin-bottom: 80px;
+}
+
+header, footer{
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0  2rem;
+    width: 100vw;
+}
+
+header{
+    position: fixed;
+    top: 0;
+    left: 0; 
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+}
+
+.logo img{
+    height: 75px;
+    width: 100px;
+}
+
+ul{
+    display: flex;
+    gap: 1rem;
+    list-style-type: none;
+}
+
+.search-input{
+    width: 30vw;
+    max-width: 350px;
+    padding: .75rem;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    background: none;
+}
+
+nav a{
+    text-decoration: none;
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+nav a:hover {
+    opacity: .7;
+}
+
+#search{
+    display: flex;
+    align-items: center;
+    border-radius:20px 20px;
+    background-color: white;
+    padding: 0 1rem;
+}
+
+#search button{
+    cursor: pointer;
+    border: none;
+    background: none;
+}
+
+.fa {
+    padding: 1rem;
+    font-size: 1.5rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook, .fa-twitter, .fa-instagram {
+    color: white;
+}
+
+.image-container{
+    width: 100%;
+    max-height: 40vh;
+    overflow: hidden;
+}
+
+.image-container img{
+    width: 100%; 
+    height: auto; 
+    display: block; 
+    object-fit: cover;
+}
+
+.welcome{
+    width: 60%;
+    max-width: 700px;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2rem auto;
+    font-size: 1.3rem;
+}
+
+.redirect-button {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.4rem;
+    color: #fff;
+    background-color: cornflowerblue;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.redirect-button:hover {
+    border: 1px solid darkblue;
+    background-color: #0056b3;
+}
+
+/* items CSS */
+
+.item-container{
+    width: 95%;
+    max-width: 1800px;
+    height: 100%;
+    margin: 3rem auto;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.item{
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 350px;
+    width: 300px;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.item:hover {
+    transform: scale(1.05);
+}
+
+.item img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.item-title, .item-condition, .item-price, .item-year, .item-offer{
+    padding: 8px 14px;
+
+}
+
+.item-title {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.item-condition {
+    font-size: 14px;
+    color: #666;
+}
+
+.item-price{
+    font-size: 1rem;
+    color: crimson;
+    font-weight: bold;
+}
+
+.item-offer{
+    font-size: 1rem;
+    color: orange;
+    font-weight: bold;
+}
+
+.item-year {
+    font-size: 14px;
+    color: #888;
+}
+
+hr{
+    width: 90%;
+    align-self: center;
+    margin: 5px 0;
+}
+
+.item-container a, .profile-item-container a{
+    text-decoration: none;
+    color: white;
+}
+
+.price-offers{
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Details CSS */
+
+body:has(.details-container){
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.details-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px; 
+    width: 100%; 
+    max-width: 900px; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: black;
+}
+
+.details-image {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.details-image img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.specs {
+    padding: 50px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.specs h2 {
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.specs h3{
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    color: coral;
+}
+
+.specs h4{
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    color: cadetblue;
+}
+
+.specs p{
+    margin: 5px 0;
+    font-size: 1rem;
+}
+
+.description {
+    margin-top: 15px;
+    font-size: 14px;
+    color: coral;
+}
+
+.details-options{
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.details-options button{
+    width: 6rem;
+    display: inline-block;
+    padding: 8px;
+    font-size: .9rem;
+    color: #fff;
+    background-color: cornflowerblue;
+    text-decoration: none;
+    border: 1px solid transparent;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.details-options button:hover {
+    border: 1px solid cornflowerblue;
+    background-color: white;
+    color: cornflowerblue;
+}
+
+.specs .unavailable{
+    color: white;
+}
+
+/* Selling CSS */
+
+body:has(.form-container){
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+}
+
+.form-container{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 750px;
+    margin: 6rem auto;    
+}
+
+.form-prompt{
+    color: black;
+    padding: 2rem;
+    margin-top: 6rem;
+    text-align: center;
+}
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    background-color: black;
+    border-radius: 10px;
+}
+
+.form-element label{
+    padding-top: 1rem;
+    padding-bottom: .5rem;
+    width: 30%;
+}
+
+.form-element input, .form-element select, .form-element textarea{
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.label-grouper{
+    display: flex;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.submit-btn {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.submit-btn:hover {
+    background-color: #0056b3;
+}
+
+.error {
+    border-color: red;
+}
+
+/* Flash Message */
+
+.flash-message {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    max-width: 300px;
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #fff;
+    text-align: center;
+}
+
+
+.flash-message.success {
+    background-color: #28a745;
+    border: 1px solid #1e7e34;
+}
+
+.flash-message.error {
+    background-color: #dc3545;
+    border: 1px solid #c82333;
+}
+
+/* Profile */
+.profile-item-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    width: 95%;
+    max-width: 1800px;
+    margin: 3rem auto;
+}
+
+.profile-item-container .item {
+    display: flex;
+    flex-direction: column;
+    background-color: black;
+    height: 350px;
+    width: 100%;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 2px 3px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.profile-item-container .item:hover {
+    transform: scale(1.05);
+}
+
+/* Profile */
+
+.list-view table {
+    width: 800px;
+    margin: 2rem auto; 
+    border-collapse: collapse;
+}
+
+.list-view th, .list-view td {
+    border: 1px solid #ddd;
+    text-align: center;
+    padding: 12px;
+}
+
+.list-view th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+}
+
+.list-view tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.list-view tr:hover {
+    background-color: #f1f1f1;
+}
+
+.action-button {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+}
+
+.action-button.edit {
+    background-color: #007bff;
+}
+
+.action-button.edit:hover {
+    background-color: #0056b3;
+}
+
+.action-button.delete {
+    background-color: crimson;
+    border: none;
+    color: white;
+}
+
+.action-button.delete:hover {
+    background-color: darkred;
+}
+
+.no-listings-message {
+    text-align: center;
+    font-size: 1.2rem; ;
+    font-family: 'Arial', sans-serif; ;
+    color: #333; ;
+    margin-top: 2rem; ;
+    font-weight: normal; ;
+}
+
+
+/* Offer Form Styling */
+
+.offer-form {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* Add space between input and button */
+    margin-top: 1rem;
+}
+
+.offer-input {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 60%;
+    background-color: #1c1c1c; /* Dark background for consistency */
+    color: white;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+.offer-input:focus {
+    border-color: cornflowerblue;
+    outline: none;
+    background-color: #2c2c2c;
+}
+
+.offer-button {
+    padding: 12px;
+    font-size: 1rem;
+    background-color: cornflowerblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.offer-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+.action-button.view-offers {
+    background-color: #28a745; /* Green background */
+}
+
+.action-button.view-offers:hover {
+    background-color: #218838; /* Darker green for hover effect */
+}
+
+.action-button.view-offers.disabled {
+    background-color: gray; /* Gray background */
+    pointer-events: none;    /* Disable clicking */
+    opacity: 0.5;            /* Make it semi-transparent */
+}
+
+/* Styles specific to the offers table */
+/* .offers-section {
+    margin-top: 20px;
+}
+
+.offers-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.offers-table th, .offers-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.offers-table th {
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+.offers-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.offers-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.offers-table .action-button {
+    padding: 8px 15px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.offers-table .accept {
+    background-color: green;
+}
+
+.offers-table .reject {
+    background-color: red;
+}
+
+.offers-table .action-button:hover {
+    opacity: 0.8;
+} */

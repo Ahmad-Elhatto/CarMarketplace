@@ -1,0 +1,71 @@
+<%- include ('../partials/header.ejs')%>
+
+<main>
+    <section class="welcome">
+        <h2>Welcome, <%= user.firstName + " " + user.lastName %>!</h2>
+        <p>Here are your listings:</p>
+    </section>
+
+    <% if (listings.length) { %>
+        <section class="list-view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% listings.forEach(listing => { %>
+                        <tr>
+                            <td><a href="/market/<%= listing.id %>"><%= listing.title %></a></td>
+                            <td><%= listing.active ? "Active" : "Inactive" %></td>
+                            <td>
+                                <a href="/market/<%= listing.id %>/edit" class="action-button edit">Edit</a>
+                                <form action="/market/<%= listing.id %>?_method=DELETE" method="POST" style="display:inline;">
+                                    <button type="submit" class="action-button delete">Delete</button>
+                                </form>
+                                <a href="/market/<%= listing.id %>/offers" 
+                                   class="action-button view-offers <%= listing.totalOffers === 0 ? 'disabled' : '' %>">View Offers</a>
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+    <% } else { %>
+        <p class="no-listings-message">You have no listings currently.</p>
+    <% } %>
+
+    <section class="welcome">
+        <p>Here are your offers:</p>
+    </section>
+
+    <% if (offers.length) { %>
+        <section class="list-view">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% offers.forEach(offer => { %>
+                        <tr>
+                            <td><a href="/market/<%= offer.item.id %>"><%= offer.item.title %></a></td>
+                            <td><%= offer.status %></td>
+                            <td><%= "$" + offer.amount.toFixed(2) %></td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        </section>
+    <% } else { %>
+        <p class="no-listings-message">You have not made any offers yet.</p>
+    <% } %>
+</main>
+
+<%- include ('../partials/footer.ejs')%>

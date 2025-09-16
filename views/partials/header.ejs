@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <title>Car Marketplace</title>
+    </head>
+    <body>
+        <header id="header">
+            <a href="/" class="logo">
+                <img src="/images/AutoHaven-.png" alt="Brand Logo">
+            </a>
+            <form id="search" action="/market" method="GET">
+                <input type="text" class="search-input" name="search" placeholder="Search..." value="<%= (typeof query !== 'undefined') ? query : '' %>">
+                <button type="submit">
+                    <span class="material-symbols-outlined">
+                        search
+                    </span>
+                </button>
+            </form>
+            <nav>
+                <ul>
+                    <li><a href="/market">Browse</a></li>
+                    <li><a href="/market/new">Sell</a></li>
+
+                    <% if(!user){ %>
+                        <li><a href="/users/login">Login</a></li>
+                        <li><a href="/users/new">Sign Up</a></li>
+                    <% } else { %>                    
+                        <li><a href="/users/logout">Logout</a></li>
+                        <li><a href="/users/profile">Profile</a></li>
+                    <% } %>
+                </ul>
+            </nav>
+        </header>
+
+        <% if(errorMessages.length > 0){ %>
+            <% errorMessages.forEach(message => { %>
+                <div class="flash-message error"><%= message %></div>
+            <% }); %>
+        <% } %>
+
+        <% if(successMessages.length > 0){ %>
+            <% successMessages.forEach(message => { %>
+                <div class="flash-message success"><%= message %></div>
+            <% }); %>
+        <% } %>
